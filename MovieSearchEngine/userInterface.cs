@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MovieSearchEngine
 {
-    public partial class Form1 : Form
+    public partial class userInterface : Form
     {
-        public Form1()
+        public userInterface()
         {
             InitializeComponent();
         }
