@@ -41,18 +41,19 @@
             // 
             // uxSearchBox
             // 
-            this.uxSearchBox.Location = new System.Drawing.Point(24, 23);
-            this.uxSearchBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.uxSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxSearchBox.Location = new System.Drawing.Point(18, 19);
+            this.uxSearchBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uxSearchBox.Name = "uxSearchBox";
-            this.uxSearchBox.Size = new System.Drawing.Size(610, 38);
+            this.uxSearchBox.Size = new System.Drawing.Size(458, 34);
             this.uxSearchBox.TabIndex = 0;
             // 
             // uxSearchButton
             // 
-            this.uxSearchButton.Location = new System.Drawing.Point(650, 23);
-            this.uxSearchButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.uxSearchButton.Location = new System.Drawing.Point(488, 19);
+            this.uxSearchButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uxSearchButton.Name = "uxSearchButton";
-            this.uxSearchButton.Size = new System.Drawing.Size(316, 45);
+            this.uxSearchButton.Size = new System.Drawing.Size(237, 36);
             this.uxSearchButton.TabIndex = 1;
             this.uxSearchButton.Text = "Search";
             this.uxSearchButton.UseVisualStyleBackColor = true;
@@ -61,10 +62,10 @@
             // uxMovieNameCheck
             // 
             this.uxMovieNameCheck.AutoSize = true;
-            this.uxMovieNameCheck.Location = new System.Drawing.Point(24, 78);
-            this.uxMovieNameCheck.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.uxMovieNameCheck.Location = new System.Drawing.Point(18, 63);
+            this.uxMovieNameCheck.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uxMovieNameCheck.Name = "uxMovieNameCheck";
-            this.uxMovieNameCheck.Size = new System.Drawing.Size(187, 35);
+            this.uxMovieNameCheck.Size = new System.Drawing.Size(144, 29);
             this.uxMovieNameCheck.TabIndex = 2;
             this.uxMovieNameCheck.Text = "Movie Name";
             this.uxMovieNameCheck.UseVisualStyleBackColor = true;
@@ -72,10 +73,10 @@
             // uxActorNameCheck
             // 
             this.uxActorNameCheck.AutoSize = true;
-            this.uxActorNameCheck.Location = new System.Drawing.Point(252, 78);
-            this.uxActorNameCheck.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.uxActorNameCheck.Location = new System.Drawing.Point(189, 63);
+            this.uxActorNameCheck.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uxActorNameCheck.Name = "uxActorNameCheck";
-            this.uxActorNameCheck.Size = new System.Drawing.Size(179, 35);
+            this.uxActorNameCheck.Size = new System.Drawing.Size(137, 29);
             this.uxActorNameCheck.TabIndex = 3;
             this.uxActorNameCheck.Text = "Actor Name";
             this.uxActorNameCheck.UseVisualStyleBackColor = true;
@@ -83,10 +84,10 @@
             // uxDirectorNameCheck
             // 
             this.uxDirectorNameCheck.AutoSize = true;
-            this.uxDirectorNameCheck.Location = new System.Drawing.Point(472, 78);
-            this.uxDirectorNameCheck.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.uxDirectorNameCheck.Location = new System.Drawing.Point(354, 63);
+            this.uxDirectorNameCheck.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uxDirectorNameCheck.Name = "uxDirectorNameCheck";
-            this.uxDirectorNameCheck.Size = new System.Drawing.Size(211, 35);
+            this.uxDirectorNameCheck.Size = new System.Drawing.Size(158, 29);
             this.uxDirectorNameCheck.TabIndex = 4;
             this.uxDirectorNameCheck.Text = "Director Name";
             this.uxDirectorNameCheck.UseVisualStyleBackColor = true;
@@ -94,19 +95,19 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 31;
-            this.listBox1.Location = new System.Drawing.Point(24, 130);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.listBox1.ItemHeight = 25;
+            this.listBox1.Location = new System.Drawing.Point(18, 105);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(432, 562);
+            this.listBox1.Size = new System.Drawing.Size(325, 454);
             this.listBox1.TabIndex = 6;
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(490, 130);
-            this.listView1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.listView1.Location = new System.Drawing.Point(368, 105);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(780, 554);
+            this.listView1.Size = new System.Drawing.Size(586, 448);
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -116,25 +117,27 @@
             this.comboBox1.Items.AddRange(new object[] {
             "None",
             "Comedy"});
-            this.comboBox1.Location = new System.Drawing.Point(802, 78);
+            this.comboBox1.Location = new System.Drawing.Point(600, 63);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 39);
+            this.comboBox1.Size = new System.Drawing.Size(92, 33);
             this.comboBox1.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(692, 82);
+            this.label1.Location = new System.Drawing.Point(519, 66);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 31);
+            this.label1.Size = new System.Drawing.Size(77, 25);
             this.label1.TabIndex = 10;
             this.label1.Text = "Genere";
             // 
             // userInterface
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1298, 711);
+            this.ClientSize = new System.Drawing.Size(974, 573);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.listView1);
@@ -144,8 +147,8 @@
             this.Controls.Add(this.uxMovieNameCheck);
             this.Controls.Add(this.uxSearchButton);
             this.Controls.Add(this.uxSearchBox);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "userInterface";
             this.Text = "Movie Search Engine";
             this.ResumeLayout(false);
