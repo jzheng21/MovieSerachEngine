@@ -33,7 +33,7 @@
             this.uxMovieNameCheck = new System.Windows.Forms.CheckBox();
             this.uxActorNameCheck = new System.Windows.Forms.CheckBox();
             this.uxDirectorNameCheck = new System.Windows.Forms.CheckBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.movieFoundListbox = new System.Windows.Forms.ListBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -92,15 +92,15 @@
             this.uxDirectorNameCheck.Text = "Director Name";
             this.uxDirectorNameCheck.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // movieFoundListbox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(18, 105);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(325, 454);
-            this.listBox1.TabIndex = 6;
+            this.movieFoundListbox.FormattingEnabled = true;
+            this.movieFoundListbox.ItemHeight = 25;
+            this.movieFoundListbox.Location = new System.Drawing.Point(18, 105);
+            this.movieFoundListbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.movieFoundListbox.Name = "movieFoundListbox";
+            this.movieFoundListbox.Size = new System.Drawing.Size(325, 454);
+            this.movieFoundListbox.TabIndex = 6;
             // 
             // listView1
             // 
@@ -118,7 +118,7 @@
             "None",
             "Comedy"});
             this.comboBox1.Location = new System.Drawing.Point(600, 63);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(92, 33);
             this.comboBox1.TabIndex = 9;
@@ -141,7 +141,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.movieFoundListbox);
             this.Controls.Add(this.uxDirectorNameCheck);
             this.Controls.Add(this.uxActorNameCheck);
             this.Controls.Add(this.uxMovieNameCheck);
@@ -163,7 +163,7 @@
         private System.Windows.Forms.CheckBox uxMovieNameCheck;
         private System.Windows.Forms.CheckBox uxActorNameCheck;
         private System.Windows.Forms.CheckBox uxDirectorNameCheck;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox movieFoundListbox;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;

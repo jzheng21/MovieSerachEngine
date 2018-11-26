@@ -13,20 +13,31 @@ namespace MovieSearchEngine
 {
     public partial class userInterface : Form
     {
+        List<Person> people = new List<Person>();
         public userInterface()
         {
             InitializeComponent();
+            movieFoundListbox.DataSource = people;
+            movieFoundListbox.DisplayMember = "FullInfo";
         }
 
         private void uxSearchButton_Click(object sender, EventArgs e)
         {
             try
             {
+                DataAccess db = new DataAccess();
+
+                people = db.GetPeople(uxSearchBox.Text);
+
+                movieFoundListbox.DataSource = people;
+                movieFoundListbox.DisplayMember = "FullInfo";
+
+                /*
                 // Build connection string
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "localhost";   // update me
-                builder.UserID = "sa";              // update me
-                builder.Password = "your_password";      // update me
+                builder.DataSource = "mssql.cs.ksu.edu";   // update me
+                builder.UserID = "WIN2\\jayie21";              // update me
+                builder.Password = "";      // update me
                 builder.InitialCatalog = "master";
 
                 // Connect to SQL
@@ -37,7 +48,7 @@ namespace MovieSearchEngine
                     connection.Open();
                     //Console.WriteLine("Done.");
                     uxSearchBox.Text = "Done";
-                }
+                }*/
             }
             catch (SqlException ex)
             {
