@@ -35,7 +35,7 @@
             this.uxDirectorNameCheck = new System.Windows.Forms.CheckBox();
             this.movieFoundListbox = new System.Windows.Forms.ListBox();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.uxGenereDropDownList = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -45,7 +45,7 @@
             this.uxSearchBox.Location = new System.Drawing.Point(18, 19);
             this.uxSearchBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uxSearchBox.Name = "uxSearchBox";
-            this.uxSearchBox.Size = new System.Drawing.Size(458, 34);
+            this.uxSearchBox.Size = new System.Drawing.Size(458, 29);
             this.uxSearchBox.TabIndex = 0;
             // 
             // uxSearchButton
@@ -65,7 +65,7 @@
             this.uxMovieNameCheck.Location = new System.Drawing.Point(18, 63);
             this.uxMovieNameCheck.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uxMovieNameCheck.Name = "uxMovieNameCheck";
-            this.uxMovieNameCheck.Size = new System.Drawing.Size(144, 29);
+            this.uxMovieNameCheck.Size = new System.Drawing.Size(115, 24);
             this.uxMovieNameCheck.TabIndex = 2;
             this.uxMovieNameCheck.Text = "Movie Name";
             this.uxMovieNameCheck.UseVisualStyleBackColor = true;
@@ -76,7 +76,7 @@
             this.uxActorNameCheck.Location = new System.Drawing.Point(189, 63);
             this.uxActorNameCheck.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uxActorNameCheck.Name = "uxActorNameCheck";
-            this.uxActorNameCheck.Size = new System.Drawing.Size(137, 29);
+            this.uxActorNameCheck.Size = new System.Drawing.Size(112, 24);
             this.uxActorNameCheck.TabIndex = 3;
             this.uxActorNameCheck.Text = "Actor Name";
             this.uxActorNameCheck.UseVisualStyleBackColor = true;
@@ -87,7 +87,7 @@
             this.uxDirectorNameCheck.Location = new System.Drawing.Point(354, 63);
             this.uxDirectorNameCheck.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uxDirectorNameCheck.Name = "uxDirectorNameCheck";
-            this.uxDirectorNameCheck.Size = new System.Drawing.Size(158, 29);
+            this.uxDirectorNameCheck.Size = new System.Drawing.Size(130, 24);
             this.uxDirectorNameCheck.TabIndex = 4;
             this.uxDirectorNameCheck.Text = "Director Name";
             this.uxDirectorNameCheck.UseVisualStyleBackColor = true;
@@ -95,11 +95,11 @@
             // movieFoundListbox
             // 
             this.movieFoundListbox.FormattingEnabled = true;
-            this.movieFoundListbox.ItemHeight = 25;
+            this.movieFoundListbox.ItemHeight = 20;
             this.movieFoundListbox.Location = new System.Drawing.Point(18, 105);
             this.movieFoundListbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.movieFoundListbox.Name = "movieFoundListbox";
-            this.movieFoundListbox.Size = new System.Drawing.Size(325, 454);
+            this.movieFoundListbox.Size = new System.Drawing.Size(325, 444);
             this.movieFoundListbox.TabIndex = 6;
             // 
             // listView1
@@ -111,17 +111,20 @@
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
-            // comboBox1
+            // uxGenereDropDownList
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "None",
-            "Comedy"});
-            this.comboBox1.Location = new System.Drawing.Point(600, 63);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(92, 33);
-            this.comboBox1.TabIndex = 9;
+            this.uxGenereDropDownList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.uxGenereDropDownList.FormattingEnabled = true;
+            this.uxGenereDropDownList.Items.AddRange(new object[] {
+            "Select Genere",
+            "Comedy",
+            "Horror",
+            "Scientific"});
+            this.uxGenereDropDownList.Location = new System.Drawing.Point(586, 63);
+            this.uxGenereDropDownList.Margin = new System.Windows.Forms.Padding(2);
+            this.uxGenereDropDownList.Name = "uxGenereDropDownList";
+            this.uxGenereDropDownList.Size = new System.Drawing.Size(139, 28);
+            this.uxGenereDropDownList.TabIndex = 9;
             // 
             // label1
             // 
@@ -129,17 +132,17 @@
             this.label1.Location = new System.Drawing.Point(519, 66);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 25);
+            this.label1.Size = new System.Drawing.Size(63, 20);
             this.label1.TabIndex = 10;
             this.label1.Text = "Genere";
             // 
             // userInterface
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 573);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.uxGenereDropDownList);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.movieFoundListbox);
             this.Controls.Add(this.uxDirectorNameCheck);
@@ -165,7 +168,7 @@
         private System.Windows.Forms.CheckBox uxDirectorNameCheck;
         private System.Windows.Forms.ListBox movieFoundListbox;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox uxGenereDropDownList;
         private System.Windows.Forms.Label label1;
     }
 }

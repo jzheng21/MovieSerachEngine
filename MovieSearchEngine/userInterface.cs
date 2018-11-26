@@ -17,8 +17,7 @@ namespace MovieSearchEngine
         public userInterface()
         {
             InitializeComponent();
-            movieFoundListbox.DataSource = people;
-            movieFoundListbox.DisplayMember = "FullInfo";
+            uxGenereDropDownList.SelectedIndex = 0;
         }
 
         private void uxSearchButton_Click(object sender, EventArgs e)
