@@ -22,6 +22,7 @@ namespace MovieSearchEngine
         public userInterface()
         {
             InitializeComponent();
+            uxGenreComboBox.SelectedIndex = 0;
             movieFoundListbox.DataSource = people;
             movieFoundListbox.DisplayMember = "FullInfo";
         }
@@ -92,12 +93,15 @@ namespace MovieSearchEngine
             if (!String.IsNullOrEmpty(uxGenreComboBox.Text))
             {
                 input = uxGenreComboBox.Text.Trim();
-                query.Append("INNER JOIN FinalProject.MovieGenre FMG " +
-                    "ON FMG.MovieId = FM.MovieId " +
-                    "INNER JOIN FinalProject.Genre FG " +
-                    "ON FG.GenreId = FMG.GenreId " +
-                    $"and FG.GenreType = '{input} '");
-                input = "";
+                if (uxGenreComboBox.SelectedIndex != 0)
+                {
+                    query.Append("INNER JOIN FinalProject.MovieGenre FMG " +
+                        "ON FMG.MovieId = FM.MovieId " +
+                        "INNER JOIN FinalProject.Genre FG " +
+                        "ON FG.GenreId = FMG.GenreId " +
+                        $"and FG.GenreType = '{input} '");
+                    input = "";
+                }
             }
         }
 
