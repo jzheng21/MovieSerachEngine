@@ -17,8 +17,8 @@ namespace MovieSearchEngine
         public userInterface()
         {
             InitializeComponent();
-            movieFoundListbox.DataSource = people;
-            movieFoundListbox.DisplayMember = "FullInfo";
+            uxGenereDropDownList.SelectedIndex = 0;
+            this.uxSearchText.AutoSize = false;
         }
 
         private void uxSearchButton_Click(object sender, EventArgs e)
@@ -27,32 +27,14 @@ namespace MovieSearchEngine
             {
                 DataAccess db = new DataAccess();
 
-                people = db.GetPeople(uxSearchBox.Text);
+                people = db.GetPeople(uxSearchText.Text);
 
                 movieFoundListbox.DataSource = people;
                 movieFoundListbox.DisplayMember = "FullInfo";
-
-                /*
-                // Build connection string
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "mssql.cs.ksu.edu";   // update me
-                builder.UserID = "WIN2\\jayie21";              // update me
-                builder.Password = "";      // update me
-                builder.InitialCatalog = "master";
-
-                // Connect to SQL
-                uxSearchBox.Text = "Connecting to SQL Server ... ";
-                //Console.Write("Connecting to SQL Server ... ");
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-                {
-                    connection.Open();
-                    //Console.WriteLine("Done.");
-                    uxSearchBox.Text = "Done";
-                }*/
             }
             catch (SqlException ex)
             {
-                uxSearchBox.Text = ex.ToString();
+                uxSearchText.Text = ex.ToString();
                 //Console.WriteLine(ex.ToString());
             }
         }
