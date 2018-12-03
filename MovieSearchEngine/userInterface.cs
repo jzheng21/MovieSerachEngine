@@ -32,17 +32,68 @@ namespace MovieSearchEngine
 
             String input = "";
 
+            // Inner join clause
+            // Actor name inner join condition
             if (!String.IsNullOrEmpty(uxActorNameTextbox.Text))
             {
                 input = uxMovieNameTextbox.Text;
                 query.Append("INNER JOIN FinalProject.PeopleMovie FPM " +
                     "ON FPM.MovieId = FM.MovieId AND FPM.IsActor = True ");
+                input = "";
             }
 
+            // Director name inner join condition
+            if (!String.IsNullOrEmpty(uxActorNameTextbox.Text))
+            {
+                input = uxMovieNameTextbox.Text;
+                query.Append("INNER JOIN FinalProject.PeopleMovie FPM " +
+                    "ON FPM.MovieId = FM.MovieId AND FPM.IsDirector = True ");
+                input = "";
+            }
+
+            // Both actor name inputed by user
+            if (!String.IsNullOrEmpty(uxActorNameTextbox.Text) && !String.IsNullOrEmpty(uxActorNameTextbox.Text))
+            {
+                input = uxMovieNameTextbox.Text;
+                query.Append("INNER JOIN FinalProject.PeopleMovie FPM " +
+                    "ON FPM.MovieId = FM.MovieId");
+                input = "";
+            }
+
+            // Where clause
+            String whereClause = "WHERE";
+            // Movie name where condition
             if (!String.IsNullOrEmpty(uxMovieNameTextbox.Text))
             {
                 input = uxMovieNameTextbox.Text;
-                query.Append($"WHERE FM.MovieName = '{input}' ");
+                query.Append($"{whereClause} FM.MovieName = '{input}' ");
+                input = "";
+                whereClause = "AND";
+            }
+
+            // Actor name where condition
+            if (!String.IsNullOrEmpty(uxActorNameTextbox.Text))
+            {
+                input = uxMovieNameTextbox.Text;
+                query.Append("INNER JOIN FinalProject.PeopleMovie FPM ");
+                input = "";
+            }
+
+            // Director name inner join condition
+            if (!String.IsNullOrEmpty(uxActorNameTextbox.Text))
+            {
+                input = uxMovieNameTextbox.Text;
+                query.Append("INNER JOIN FinalProject.PeopleMovie FPM " +
+                    "ON FPM.MovieId = FM.MovieId AND FPM.IsDirector = True ");
+                input = "";
+            }
+
+            // Both actor name inputed by user
+            if (!String.IsNullOrEmpty(uxActorNameTextbox.Text) && !String.IsNullOrEmpty(uxActorNameTextbox.Text))
+            {
+                input = uxMovieNameTextbox.Text;
+                query.Append("INNER JOIN FinalProject.PeopleMovie FPM " +
+                    "ON FPM.MovieId = FM.MovieId");
                 input = "";
             }
 
