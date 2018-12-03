@@ -29,7 +29,7 @@ namespace MovieSearchEngine
         private void uxSearchButton_Click(object sender, EventArgs e)
         {
             // Base condition for SQL query
-            query.Append("SELECT DISTINCT FM.MovieName, FM.Year" +
+            query.Append("SELECT DISTINCT FM.MovieName, FM.ReleaseTime AS [Year] " +
                 "FROM FinalProject.Movie FM ");
 
             // inner join
@@ -46,6 +46,8 @@ namespace MovieSearchEngine
 
                 movieFoundListbox.DataSource = movieTitles;
                 movieFoundListbox.DisplayMember = "FullInfo";
+
+                query.Clear();
             }
             catch (SqlException ex)
             {
@@ -107,7 +109,7 @@ namespace MovieSearchEngine
             if (!String.IsNullOrEmpty(uxMovieNameTextbox.Text))
             {
                 input = uxMovieNameTextbox.Text;
-                query.Append($"{whereClause} FM.MovieName = '{input}' ");
+                query.Append($"{whereClause} FM.MovieName LIKE '%{input}%' ");
                 input = "";
                 whereClause = "AND";
             }
@@ -115,7 +117,7 @@ namespace MovieSearchEngine
             if (!String.IsNullOrEmpty(uxYearTextbox.Text))
             {
                 input = uxYearTextbox.Text;
-                query.Append($"{whereClause} YEAR(FM.ReleaseTime) = '{input}' ");
+                query.Append($"{whereClause} YEAR(FM.ReleaseTime) = {input} ");
                 input = "";
                 whereClause = "AND";
             }
@@ -125,7 +127,7 @@ namespace MovieSearchEngine
             {
                 String actorNM = uxActorNameTextbox.Text;
                 String directorNM = uxDirectorNameTextbox.Text;
-                query.Append($"{whereClause} FP.PeopleName LIKE '{actorNM}'" +
+                query.Append($"{whereClause} FP.PeopleName LIKE '%{actorNM}%'" +
                     $"OR FP.PeopleName LIKE '{directorNM}'");
                 input = "";
                 whereClause = "AND";
@@ -133,14 +135,14 @@ namespace MovieSearchEngine
             else if (!String.IsNullOrEmpty(uxActorNameTextbox.Text))
             {
                 input = uxActorNameTextbox.Text;
-                query.Append($"{whereClause} FP.PeopleName LIKE '{input}'");
+                query.Append($"{whereClause} FP.PeopleName LIKE '%{input}%'");
                 input = "";
                 whereClause = "AND";
             }// Director name where condition
             else if (!String.IsNullOrEmpty(uxActorNameTextbox.Text))
             {
                 input = uxDirectorNameTextbox.Text;
-                query.Append($"{whereClause} FP.PeopleName LIKE '{input}'");
+                query.Append($"{whereClause} FP.PeopleName LIKE '%{input}%'");
                 input = "";
                 whereClause = "AND";
             }            
