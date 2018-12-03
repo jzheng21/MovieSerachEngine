@@ -10,7 +10,7 @@ namespace MovieSearchEngine
 {
     public class DataAccess
     {
-        public List<MovieTitle> GetMovieTitles(string query)
+        public List<MovieTitle> GetDbData(string query)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnString("SampleDB")))
             {

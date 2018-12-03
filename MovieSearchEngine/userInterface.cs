@@ -43,7 +43,7 @@ namespace MovieSearchEngine
             {
                 DataAccess db = new DataAccess();
 
-                movieTitles = db.GetMovieTitles(query.ToString());
+                movieTitles = db.GetDbData(query.ToString());
 
                 movieFoundListbox.DataSource = movieTitles;
                 movieFoundListbox.DisplayMember = "FullInfo";
