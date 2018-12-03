@@ -37,14 +37,14 @@
             this.uxDirectorNameLabel = new System.Windows.Forms.Label();
             this.uxReleaseYearLabel = new System.Windows.Forms.Label();
             this.uxActorNameTextbox = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.uxDirectorNameTextbox = new System.Windows.Forms.TextBox();
             this.uxGenreLabel = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.uxYearTextbox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.uxGenreComboBox = new System.Windows.Forms.ComboBox();
             this.listView2 = new System.Windows.Forms.ListView();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -132,14 +132,14 @@
             this.uxActorNameTextbox.Size = new System.Drawing.Size(201, 29);
             this.uxActorNameTextbox.TabIndex = 13;
             // 
-            // textBox2
+            // uxDirectorNameTextbox
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(128, 91);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(201, 29);
-            this.textBox2.TabIndex = 15;
+            this.uxDirectorNameTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxDirectorNameTextbox.Location = new System.Drawing.Point(128, 91);
+            this.uxDirectorNameTextbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uxDirectorNameTextbox.Name = "uxDirectorNameTextbox";
+            this.uxDirectorNameTextbox.Size = new System.Drawing.Size(201, 29);
+            this.uxDirectorNameTextbox.TabIndex = 15;
             // 
             // uxGenreLabel
             // 
@@ -150,14 +150,14 @@
             this.uxGenreLabel.TabIndex = 16;
             this.uxGenreLabel.Text = "Genre";
             // 
-            // textBox4
+            // uxYearTextbox
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(128, 134);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(201, 29);
-            this.textBox4.TabIndex = 18;
+            this.uxYearTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxYearTextbox.Location = new System.Drawing.Point(128, 134);
+            this.uxYearTextbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uxYearTextbox.Name = "uxYearTextbox";
+            this.uxYearTextbox.Size = new System.Drawing.Size(201, 29);
+            this.uxYearTextbox.TabIndex = 18;
             // 
             // tableLayoutPanel1
             // 
@@ -165,14 +165,14 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.85417F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.14584F));
             this.tableLayoutPanel1.Controls.Add(this.uxMovieNameLabel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox4, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.uxYearTextbox, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.uxActorNameLabel, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.uxDirectorNameTextbox, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.uxGenreLabel, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.uxActorNameTextbox, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.uxReleaseYearLabel, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.uxMovieNameTextbox, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.uxGenreComboBox, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.uxDirectorNameLabel, 0, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 19);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -184,6 +184,20 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(367, 215);
             this.tableLayoutPanel1.TabIndex = 19;
+            // 
+            // uxGenreComboBox
+            // 
+            this.uxGenreComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.uxGenreComboBox.FormattingEnabled = true;
+            this.uxGenreComboBox.Items.AddRange(new object[] {
+            "All",
+            "Comedy",
+            "Action",
+            "Advanture"});
+            this.uxGenreComboBox.Location = new System.Drawing.Point(127, 175);
+            this.uxGenreComboBox.Name = "uxGenreComboBox";
+            this.uxGenreComboBox.Size = new System.Drawing.Size(202, 28);
+            this.uxGenreComboBox.TabIndex = 19;
             // 
             // listView2
             // 
@@ -210,20 +224,6 @@
             this.button1.TabIndex = 22;
             this.button1.Text = "Submit";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "All",
-            "Comedy",
-            "Action",
-            "Advanture"});
-            this.comboBox1.Location = new System.Drawing.Point(127, 175);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(202, 28);
-            this.comboBox1.TabIndex = 19;
             // 
             // userInterface
             // 
@@ -259,14 +259,14 @@
         private System.Windows.Forms.Label uxDirectorNameLabel;
         private System.Windows.Forms.Label uxReleaseYearLabel;
         private System.Windows.Forms.TextBox uxActorNameTextbox;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox uxDirectorNameTextbox;
         private System.Windows.Forms.Label uxGenreLabel;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox uxYearTextbox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox uxGenreComboBox;
     }
 }
 
