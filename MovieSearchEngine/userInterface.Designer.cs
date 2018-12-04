@@ -45,7 +45,10 @@
             this.uxNewReviewTextbox = new System.Windows.Forms.TextBox();
             this.uxPushRevButton = new System.Windows.Forms.Button();
             this.uxMovieDetailTextbox = new System.Windows.Forms.TextBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // uxMovieNameTextbox
@@ -233,11 +236,21 @@
             this.uxMovieDetailTextbox.Size = new System.Drawing.Size(490, 319);
             this.uxMovieDetailTextbox.TabIndex = 23;
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Location = new System.Drawing.Point(904, 105);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.splitContainer1.Size = new System.Drawing.Size(283, 318);
+            this.splitContainer1.SplitterDistance = 159;
+            this.splitContainer1.TabIndex = 24;
+            // 
             // userInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(890, 774);
+            this.ClientSize = new System.Drawing.Size(1199, 774);
+            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.uxMovieDetailTextbox);
             this.Controls.Add(this.uxPushRevButton);
             this.Controls.Add(this.uxNewReviewTextbox);
@@ -251,6 +264,8 @@
             this.Text = "Movie Search Engine";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,6 +290,7 @@
         private System.Windows.Forms.Button uxPushRevButton;
         private System.Windows.Forms.ComboBox uxGenreComboBox;
         private System.Windows.Forms.TextBox uxMovieDetailTextbox;
+        private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }
 
