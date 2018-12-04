@@ -41,6 +41,7 @@ namespace MovieSearchEngine
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnString("SampleDB")))
             {
+                var data = query.ToString();
                 connection.Execute(query);
             }
         }
