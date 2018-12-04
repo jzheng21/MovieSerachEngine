@@ -8,13 +8,13 @@ namespace MovieSearchEngine
 {
     public class MovieReview
     {
-        public String Review { get; set; }
-        public DateTime Time { get; set; }
+        public String Comment { get; set; }
+        public DateTimeOffset CreatedTime { get; set; }
         public string FullInfo
         {
             get
             {
-                return $"{Review} \r\n      posted on {Time.ToString()}";
+                return $"{Comment} \r\n      posted on {CreatedTime.DateTime.ToString()}";
             }
         }
 

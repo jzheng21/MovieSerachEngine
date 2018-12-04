@@ -63,22 +63,26 @@ namespace MovieSearchEngine
             uxReviewSubmitButton.Enabled = true;
             int index = uxMovieFoundListbox.SelectedIndex;
             ShowDetail(index);
-            //ShowReview(index);
+            ShowReview(index);
         }
 
         private void uxPushRevButton_Click(object sender, EventArgs e)
         {
             string newReview = uxNewReviewTextbox.Text;
+            string moviewNM = movieInfo[uxMovieFoundListbox.SelectedIndex].MovieName;
             query.Clear();
             query.Append($"INSERT FinalProject.Review(MovieId, Comment) " +
                 $"SELECT m.MovieId, r.Comment " +
                 $"FROM " +
                 $"(" +
                 $"VALUES " +
-                $"(N'{movieInfo[uxMovieFoundListbox.SelectedIndex].MovieName}', N'{newReview}') " +
+                $"(N'{moviewNM}', N'{newReview}') " +
                 $") r (MovieName, Comment) " +
                 $"INNER JOIN FinalProject.Movie m ON m.MovieName = r.MovieName;");
             dataAccess.pushReview(query.ToString());
+            uxNewReviewTextbox.Clear();
+            MessageBox.Show("Review submitted!");
+            ShowReview(uxMovieFoundListbox.SelectedIndex);
         }
 
         private void innerJoin(StringBuilder query)
@@ -229,9 +233,13 @@ namespace MovieSearchEngine
         }
         private void ShowReview(int i)
         {
+            string moviewNM = movieInfo[uxMovieFoundListbox.SelectedIndex].MovieName;
             DataAccess db = new DataAccess();
             query.Clear();
-
+            query.Append($"SELECT R.Comment, R.CreatedTime " +
+                $"FROM FinalProject.Movie M " +
+                $"INNER JOIN FinalProject.Review R ON R.MovieId = M.MovieId " +
+                $"WHERE M.MovieName = '{moviewNM}'");
             movieReviews = db.GetMovieReviews(query.ToString());
             StringBuilder info = new StringBuilder();
             foreach(MovieReview mr in movieReviews)

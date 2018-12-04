@@ -45,8 +45,9 @@
             this.uxReviewSubmitButton = new System.Windows.Forms.Button();
             this.uxMovieDetailTextbox = new System.Windows.Forms.TextBox();
             this.uxReviewList = new System.Windows.Forms.ListBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.uxReviewLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.uxCommentLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +68,7 @@
             this.uxMovieFoundListbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uxMovieFoundListbox.Name = "uxMovieFoundListbox";
             this.uxMovieFoundListbox.ScrollAlwaysVisible = true;
-            this.uxMovieFoundListbox.Size = new System.Drawing.Size(367, 464);
+            this.uxMovieFoundListbox.Size = new System.Drawing.Size(367, 424);
             this.uxMovieFoundListbox.TabIndex = 6;
             this.uxMovieFoundListbox.SelectedIndexChanged += new System.EventHandler(this.uxMovieFoundListbox_SelectedIndexChanged);
             // 
@@ -201,15 +202,15 @@
             // 
             // uxNewReviewTextbox
             // 
-            this.uxNewReviewTextbox.Location = new System.Drawing.Point(387, 612);
+            this.uxNewReviewTextbox.Location = new System.Drawing.Point(384, 607);
             this.uxNewReviewTextbox.Multiline = true;
             this.uxNewReviewTextbox.Name = "uxNewReviewTextbox";
-            this.uxNewReviewTextbox.Size = new System.Drawing.Size(493, 100);
+            this.uxNewReviewTextbox.Size = new System.Drawing.Size(493, 105);
             this.uxNewReviewTextbox.TabIndex = 21;
             // 
             // uxReviewSubmitButton
             // 
-            this.uxReviewSubmitButton.Location = new System.Drawing.Point(782, 718);
+            this.uxReviewSubmitButton.Location = new System.Drawing.Point(779, 718);
             this.uxReviewSubmitButton.Name = "uxReviewSubmitButton";
             this.uxReviewSubmitButton.Size = new System.Drawing.Size(98, 34);
             this.uxReviewSubmitButton.TabIndex = 22;
@@ -219,54 +220,63 @@
             // 
             // uxMovieDetailTextbox
             // 
-            this.uxMovieDetailTextbox.Location = new System.Drawing.Point(388, 19);
+            this.uxMovieDetailTextbox.Location = new System.Drawing.Point(387, 42);
             this.uxMovieDetailTextbox.Multiline = true;
             this.uxMovieDetailTextbox.Name = "uxMovieDetailTextbox";
             this.uxMovieDetailTextbox.ReadOnly = true;
             this.uxMovieDetailTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.uxMovieDetailTextbox.Size = new System.Drawing.Size(490, 319);
+            this.uxMovieDetailTextbox.Size = new System.Drawing.Size(490, 276);
             this.uxMovieDetailTextbox.TabIndex = 23;
             // 
             // uxReviewList
             // 
             this.uxReviewList.FormattingEnabled = true;
             this.uxReviewList.ItemHeight = 20;
-            this.uxReviewList.Items.AddRange(new object[] {
-            "Review"});
-            this.uxReviewList.Location = new System.Drawing.Point(388, 340);
+            this.uxReviewList.Location = new System.Drawing.Point(385, 355);
             this.uxReviewList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uxReviewList.Name = "uxReviewList";
             this.uxReviewList.ScrollAlwaysVisible = true;
-            this.uxReviewList.Size = new System.Drawing.Size(492, 264);
+            this.uxReviewList.Size = new System.Drawing.Size(492, 224);
             this.uxReviewList.TabIndex = 25;
             // 
-            // tableLayoutPanel2
+            // uxReviewLabel
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(943, 178);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(200, 100);
-            this.tableLayoutPanel2.TabIndex = 26;
+            this.uxReviewLabel.AutoSize = true;
+            this.uxReviewLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxReviewLabel.Location = new System.Drawing.Point(383, 330);
+            this.uxReviewLabel.Name = "uxReviewLabel";
+            this.uxReviewLabel.Size = new System.Drawing.Size(75, 20);
+            this.uxReviewLabel.TabIndex = 26;
+            this.uxReviewLabel.Text = "Reviews";
             // 
-            // flowLayoutPanel1
+            // label1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(887, 340);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
-            this.flowLayoutPanel1.TabIndex = 27;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(386, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(146, 20);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Movie Infomation";
+            // 
+            // uxCommentLabel
+            // 
+            this.uxCommentLabel.AutoSize = true;
+            this.uxCommentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxCommentLabel.Location = new System.Drawing.Point(383, 584);
+            this.uxCommentLabel.Name = "uxCommentLabel";
+            this.uxCommentLabel.Size = new System.Drawing.Size(111, 20);
+            this.uxCommentLabel.TabIndex = 28;
+            this.uxCommentLabel.Text = "Add a review";
             // 
             // userInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1199, 774);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.tableLayoutPanel2);
+            this.ClientSize = new System.Drawing.Size(884, 767);
+            this.Controls.Add(this.uxCommentLabel);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.uxReviewLabel);
             this.Controls.Add(this.uxReviewList);
             this.Controls.Add(this.uxMovieDetailTextbox);
             this.Controls.Add(this.uxReviewSubmitButton);
@@ -304,8 +314,9 @@
         private System.Windows.Forms.ComboBox uxGenreComboBox;
         private System.Windows.Forms.TextBox uxMovieDetailTextbox;
         private System.Windows.Forms.ListBox uxReviewList;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label uxReviewLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label uxCommentLabel;
     }
 }
 
