@@ -169,9 +169,9 @@ namespace MovieSearchEngine
         {
             string mn = movieInfo[i].MovieName;
             query = new StringBuilder();
-            query.Append($"SELECT DISTINCT FP.PeopleName, FPM.IsActor, FPM.IsDirector " +
+            query.Append($"SELECT DISTINCT FP.PeopleName, FP.BornCountry, FPM.IsActor, FPM.IsDirector " +
                 "FROM FinalProject.Movie FM " +
-                "INNER JOIN FinalProject.PeopleMovie FPM " +
+                "INNER JOIN FinalProject.PeopleMovie FPM ON FPM.MovieId = FM.MovieId " +
                     "INNER JOIN FinalProject.People FP " +
                     "ON FP.PeopleId = FPM.PeopleId " +
                     $"WHERE FM.MovieName = N'{mn}' ");
