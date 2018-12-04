@@ -13,7 +13,7 @@ namespace MovieSearchEngine
         //public string Description { get; set; }
         public string PeopleName { get; set; }
         public string BornCountry { get; set; }
-        public string IsActor { get; set; }
-        public string IsDirector { get; set; }
+        public int IsActor { get; set; }
+        public int IsDirector { get; set; }
     }
 }

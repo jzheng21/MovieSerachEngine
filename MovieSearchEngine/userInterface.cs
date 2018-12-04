@@ -43,8 +43,8 @@ namespace MovieSearchEngine
             try
             {
                 DataAccess db = new DataAccess();
-
-                movieInfo = db.GetDbData(query.ToString());
+                var data = query.ToString();
+                movieInfo = db.GetMovieDetail(query.ToString());
 
                 uxMovieFoundListbox.DataSource = movieInfo;
                 uxMovieFoundListbox.DisplayMember = "FullInfo";
@@ -78,7 +78,7 @@ namespace MovieSearchEngine
             {
                 input = uxMovieNameTextbox.Text.Trim();
                 query.Append("INNER JOIN FinalProject.PeopleMovie FPM " +
-                    "ON FPM.MovieId = FM.MovieId" +
+                    "ON FPM.MovieId = FM.MovieId " +
                     "INNER JOIN FinalProject.People FP " +
                     "ON FP.PeopleId = FPM.PeopleId ");
                 input = "";
@@ -87,7 +87,7 @@ namespace MovieSearchEngine
             {
                 input = uxActorNameTextbox.Text;
                 query.Append("INNER JOIN FinalProject.PeopleMovie FPM " +
-                    "ON FPM.MovieId = FM.MovieId AND FPM.IsActor = True " +
+                    "ON FPM.MovieId = FM.MovieId " +
                     "INNER JOIN FinalProject.People FP " +
                     "ON FP.PeopleId = FPM.PeopleId ");
                 input = "";
@@ -96,8 +96,8 @@ namespace MovieSearchEngine
             {
                 input = uxDirectorNameTextbox.Text;
                 query.Append("INNER JOIN FinalProject.PeopleMovie FPM " +
-                    "ON FPM.MovieId = FM.MovieId AND FPM.IsDirector = True " +
-                    "INNER JOIN FinalProject.People FP" +
+                    "ON FPM.MovieId = FM.MovieId " +
+                    "INNER JOIN FinalProject.People FP " +
                     "ON FP.PeopleId = FPM.PeopleId ");
                 input = "";
             }
@@ -140,26 +140,26 @@ namespace MovieSearchEngine
             }
             
             // Both actor name inputed by user
-            if (!String.IsNullOrEmpty(uxActorNameTextbox.Text) && !String.IsNullOrEmpty(uxActorNameTextbox.Text))
+            if (!String.IsNullOrEmpty(uxActorNameTextbox.Text) && !String.IsNullOrEmpty(uxDirectorNameTextbox.Text))
             {
                 String actorNM = uxActorNameTextbox.Text;
                 String directorNM = uxDirectorNameTextbox.Text;
                 query.Append($"{whereClause} FP.PeopleName LIKE '%{actorNM}%'" +
-                    $"OR FP.PeopleName LIKE '{directorNM}'");
+                    $"AND FP.PeopleName LIKE '%{directorNM}%'");
                 input = "";
                 whereClause = "AND";
             }// Actor name where condition
             else if (!String.IsNullOrEmpty(uxActorNameTextbox.Text))
             {
                 input = uxActorNameTextbox.Text;
-                query.Append($"{whereClause} FP.PeopleName LIKE '%{input}%'");
+                query.Append($"{whereClause} FP.PeopleName LIKE '%{input}%' AND FPM.isActor = 'True'");
                 input = "";
                 whereClause = "AND";
             }// Director name where condition
-            else if (!String.IsNullOrEmpty(uxActorNameTextbox.Text))
+            else if (!String.IsNullOrEmpty(uxDirectorNameTextbox.Text))
             {
                 input = uxDirectorNameTextbox.Text;
-                query.Append($"{whereClause} FP.PeopleName LIKE '%{input}%'");
+                query.Append($"{whereClause} FP.PeopleName LIKE '%{input}%' AND FPM.isDirector = 'True'");
                 input = "";
                 whereClause = "AND";
             }            
@@ -174,7 +174,7 @@ namespace MovieSearchEngine
                 "INNER JOIN FinalProject.PeopleMovie FPM " +
                     "INNER JOIN FinalProject.People FP " +
                     "ON FP.PeopleId = FPM.PeopleId " +
-                    $"WHERE FM.MovieName = '%{mn}%' ");
+                    $"WHERE FM.MovieName = N'{mn}' ");
             mn = "";
             try
             {
