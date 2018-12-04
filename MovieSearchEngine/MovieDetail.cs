@@ -10,6 +10,7 @@ namespace MovieSearchEngine
     {
         public string MovieName { get; set; }
         public DateTime Year { get; set; }
+        public string MovieDescription { get; set; }
         public string GenreType { get; set; }
         public string FullInfo
         {

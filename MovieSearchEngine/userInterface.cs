@@ -177,12 +177,15 @@ namespace MovieSearchEngine
                     "INNER JOIN FinalProject.People FP " +
                     "ON FP.PeopleId = FPM.PeopleId " +
                     $"WHERE FM.MovieName = N'{mn}' ");
-            mn = "";
             try
             {
                 DataAccess pdb = new DataAccess();
                 peopleInfo = pdb.GetPeopleDetail(query.ToString());
-                
+                StringBuilder info = new StringBuilder();
+                info.Append($"Movie Name: {mn}\n" +
+                    $"Released by {movieInfo[i].Year}\n" +
+                    $"Movie Genre");
+                uxMovieDetailTextbox.Text = info.ToString();
                 query.Clear();
             }
             catch (SqlException ex)

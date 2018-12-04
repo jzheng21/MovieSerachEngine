@@ -42,9 +42,9 @@
             this.uxYearTextbox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.uxGenreComboBox = new System.Windows.Forms.ComboBox();
-            this.uxMovieDetailListbox = new System.Windows.Forms.ListView();
             this.uxNewReviewTextbox = new System.Windows.Forms.TextBox();
             this.uxPushRevButton = new System.Windows.Forms.Button();
+            this.uxMovieDetailTextbox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,10 +70,10 @@
             // 
             // uxReviewList
             // 
-            this.uxReviewList.Location = new System.Drawing.Point(388, 288);
+            this.uxReviewList.Location = new System.Drawing.Point(388, 346);
             this.uxReviewList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uxReviewList.Name = "uxReviewList";
-            this.uxReviewList.Size = new System.Drawing.Size(492, 316);
+            this.uxReviewList.Size = new System.Drawing.Size(492, 258);
             this.uxReviewList.TabIndex = 8;
             this.uxReviewList.UseCompatibleStateImageBehavior = false;
             // 
@@ -205,15 +205,6 @@
             this.uxGenreComboBox.Size = new System.Drawing.Size(202, 28);
             this.uxGenreComboBox.TabIndex = 19;
             // 
-            // uxMovieDetailListbox
-            // 
-            this.uxMovieDetailListbox.Location = new System.Drawing.Point(388, 19);
-            this.uxMovieDetailListbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uxMovieDetailListbox.Name = "uxMovieDetailListbox";
-            this.uxMovieDetailListbox.Size = new System.Drawing.Size(492, 259);
-            this.uxMovieDetailListbox.TabIndex = 20;
-            this.uxMovieDetailListbox.UseCompatibleStateImageBehavior = false;
-            // 
             // uxNewReviewTextbox
             // 
             this.uxNewReviewTextbox.Location = new System.Drawing.Point(387, 612);
@@ -232,14 +223,24 @@
             this.uxPushRevButton.UseVisualStyleBackColor = true;
             this.uxPushRevButton.Click += new System.EventHandler(this.uxPushRevButton_Click);
             // 
+            // uxMovieDetailTextbox
+            // 
+            this.uxMovieDetailTextbox.Location = new System.Drawing.Point(388, 19);
+            this.uxMovieDetailTextbox.Multiline = true;
+            this.uxMovieDetailTextbox.Name = "uxMovieDetailTextbox";
+            this.uxMovieDetailTextbox.ReadOnly = true;
+            this.uxMovieDetailTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.uxMovieDetailTextbox.Size = new System.Drawing.Size(490, 319);
+            this.uxMovieDetailTextbox.TabIndex = 23;
+            // 
             // userInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 774);
+            this.Controls.Add(this.uxMovieDetailTextbox);
             this.Controls.Add(this.uxPushRevButton);
             this.Controls.Add(this.uxNewReviewTextbox);
-            this.Controls.Add(this.uxMovieDetailListbox);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.uxReviewList);
             this.Controls.Add(this.uxMovieFoundListbox);
@@ -270,10 +271,10 @@
         private System.Windows.Forms.Label uxGenreLabel;
         private System.Windows.Forms.TextBox uxYearTextbox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.ListView uxMovieDetailListbox;
         private System.Windows.Forms.TextBox uxNewReviewTextbox;
         private System.Windows.Forms.Button uxPushRevButton;
         private System.Windows.Forms.ComboBox uxGenreComboBox;
+        private System.Windows.Forms.TextBox uxMovieDetailTextbox;
     }
 }
 
