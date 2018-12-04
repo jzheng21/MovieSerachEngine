@@ -87,6 +87,31 @@ namespace MovieSearchEngine
             MessageBox.Show("Review submitted!");
             ShowReview(uxMovieFoundListbox.SelectedIndex);
         }
+        /// <summary>
+        /// delete button handler.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxReviewDeleteButton_Click(object sender, EventArgs e)
+        {
+            if(uxReviewList.SelectedIndex != -1)
+            {
+                MovieReview mr = movieReviews[uxReviewList.SelectedIndex];
+                int Rid = mr.ReviewId;
+                query.Clear();
+                query.Append($"DELETE FROM FinalProject.Review " +
+                    $"WHERE ReviewId = {Rid} ");
+                dataAccess.pushReview(query.ToString());
+                uxNewReviewTextbox.Clear();
+                MessageBox.Show("Review Delete!");
+                ShowReview(uxMovieFoundListbox.SelectedIndex);
+            }
+            else
+            {
+                MessageBox.Show("No Review Selected!");
+            }
+
+        }
 
         private void innerJoin(StringBuilder query)
         {
@@ -239,7 +264,7 @@ namespace MovieSearchEngine
             string moviewNM = movieInfo[uxMovieFoundListbox.SelectedIndex].MovieName;
             DataAccess db = new DataAccess();
             query.Clear();
-            query.Append($"SELECT R.Comment, R.CreatedTime " +
+            query.Append($"SELECT R.ReviewId, R.Comment, R.CreatedTime " +
                 $"FROM FinalProject.Movie M " +
                 $"INNER JOIN FinalProject.Review R ON R.MovieId = M.MovieId " +
                 $"WHERE M.MovieName = '{moviewNM}'");

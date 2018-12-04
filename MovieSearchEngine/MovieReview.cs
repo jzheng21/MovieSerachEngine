@@ -8,6 +8,7 @@ namespace MovieSearchEngine
 {
     public class MovieReview
     {
+        public int ReviewId { get; set; }
         public String Comment { get; set; }
         public DateTimeOffset CreatedTime { get; set; }
         public string FullInfo

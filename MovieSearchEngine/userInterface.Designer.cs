@@ -48,6 +48,7 @@
             this.uxReviewLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.uxCommentLabel = new System.Windows.Forms.Label();
+            this.uxReviewDeleteButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -210,7 +211,7 @@
             // 
             // uxReviewSubmitButton
             // 
-            this.uxReviewSubmitButton.Location = new System.Drawing.Point(779, 718);
+            this.uxReviewSubmitButton.Location = new System.Drawing.Point(673, 718);
             this.uxReviewSubmitButton.Name = "uxReviewSubmitButton";
             this.uxReviewSubmitButton.Size = new System.Drawing.Size(98, 34);
             this.uxReviewSubmitButton.TabIndex = 22;
@@ -269,11 +270,22 @@
             this.uxCommentLabel.TabIndex = 28;
             this.uxCommentLabel.Text = "Add a review";
             // 
+            // uxReviewDeleteButton
+            // 
+            this.uxReviewDeleteButton.Location = new System.Drawing.Point(779, 718);
+            this.uxReviewDeleteButton.Name = "uxReviewDeleteButton";
+            this.uxReviewDeleteButton.Size = new System.Drawing.Size(98, 34);
+            this.uxReviewDeleteButton.TabIndex = 29;
+            this.uxReviewDeleteButton.Text = "Delete";
+            this.uxReviewDeleteButton.UseVisualStyleBackColor = true;
+            this.uxReviewDeleteButton.Click += new System.EventHandler(this.uxReviewDeleteButton_Click);
+            // 
             // userInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 767);
+            this.Controls.Add(this.uxReviewDeleteButton);
             this.Controls.Add(this.uxCommentLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.uxReviewLabel);
@@ -317,6 +329,7 @@
         private System.Windows.Forms.Label uxReviewLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label uxCommentLabel;
+        private System.Windows.Forms.Button uxReviewDeleteButton;
     }
 }
 
