@@ -29,7 +29,7 @@ namespace MovieSearchEngine
         private void uxSearchButton_Click(object sender, EventArgs e)
         {
             // Base condition for SQL query
-            query.Append("SELECT DISTINCT FM.MovieName, FM.ReleaseTime AS [Year] " +
+            query.Append("SELECT DISTINCT FM.MovieName, FM.ReleaseTime AS [Year], FM.MovieDescription, FG.GenreType " +
                 "FROM FinalProject.Movie FM ");
 
             // inner join
@@ -95,17 +95,17 @@ namespace MovieSearchEngine
                 input = "";
             }
 
+            query.Append("INNER JOIN FinalProject.MovieGenre FMG " +
+                "ON FMG.MovieId = FM.MovieId " +
+                "INNER JOIN FinalProject.Genre FG " +
+                "ON FG.GenreId = FMG.GenreId ");
             // Genre
             if (!String.IsNullOrEmpty(uxGenreComboBox.Text))
             {
                 input = uxGenreComboBox.Text.Trim();
                 if (uxGenreComboBox.SelectedIndex != 0)
                 {
-                    query.Append("INNER JOIN FinalProject.MovieGenre FMG " +
-                        "ON FMG.MovieId = FM.MovieId " +
-                        "INNER JOIN FinalProject.Genre FG " +
-                        "ON FG.GenreId = FMG.GenreId " +
-                        $"AND FG.GenreType = '{input}' ");
+                    query.Append($"AND FG.GenreType = '{input}' ");
                     input = "";
                 }
             }
@@ -182,9 +182,10 @@ namespace MovieSearchEngine
                 DataAccess pdb = new DataAccess();
                 peopleInfo = pdb.GetPeopleDetail(query.ToString());
                 StringBuilder info = new StringBuilder();
-                info.Append($"Movie Name: {mn}\n" +
-                    $"Released by {movieInfo[i].Year}\n" +
-                    $"Movie Genre");
+                info.Append($"Movie Name: {mn}\r\n" +
+                    $"Released by {movieInfo[i].Year}\r\n" +
+                    $"Movie Genre: {movieInfo[i].GenreType}\r\n" +
+                    $"Description: {movieInfo[i].MovieDescription}\r\n");
                 uxMovieDetailTextbox.Text = info.ToString();
                 query.Clear();
             }
