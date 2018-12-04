@@ -27,5 +27,14 @@ namespace MovieSearchEngine
                 return data;
             }
         }
+
+        public List<MovieReview> GetMovieReviews(string query)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnString("SampleDB")))
+            {
+                var data = connection.Query<MovieReview>(query).ToList();
+                return data;
+            }
+        }
     }
 }

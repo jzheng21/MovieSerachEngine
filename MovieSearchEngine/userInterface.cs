@@ -13,11 +13,9 @@ namespace MovieSearchEngine
 {
     public partial class userInterface : Form
     {
-        List<Person> people = new List<Person>();
-
         List<MovieDetail> movieInfo = new List<MovieDetail>();
-
         List<PeopleDetail> peopleInfo = new List<PeopleDetail>();
+        List<MovieReview> movieReviews = new List<MovieReview>();
         StringBuilder query = new StringBuilder();
 
         public userInterface()
