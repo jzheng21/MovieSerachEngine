@@ -30,6 +30,7 @@ namespace MovieSearchEngine
 
         private void uxSearchButton_Click(object sender, EventArgs e)
         {
+            movieInfo = new List<MovieDetail>();
             // Base condition for SQL query
             query.Append("SELECT DISTINCT FM.MovieName, FM.ReleaseTime AS [Year], FM.MovieDescription, FG.GenreType " +
                 "FROM FinalProject.Movie FM ");
@@ -60,6 +61,8 @@ namespace MovieSearchEngine
 
         private void uxMovieFoundListbox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            peopleInfo = new List<PeopleDetail>();
+            movieReviews = new List<MovieReview>();
             uxReviewSubmitButton.Enabled = true;
             int index = uxMovieFoundListbox.SelectedIndex;
             ShowDetail(index);
@@ -201,9 +204,9 @@ namespace MovieSearchEngine
                 peopleInfo = db.GetPeopleDetail(query.ToString());
                 StringBuilder info = new StringBuilder();
                 info.Append($"Movie Name: {mn}\r\n" +
-                    $"Released by {movieInfo[i].Year}\r\n" +
-                    $"Movie Genre: {movieInfo[i].GenreType}\r\n" +
-                    $"Description: {movieInfo[i].MovieDescription}\r\n");
+                    $"\r\nReleased by {movieInfo[i].Year}\r\n" +
+                    $"\r\nMovie Genre: {movieInfo[i].GenreType}\r\n" +
+                    $"\r\nDescription: {movieInfo[i].MovieDescription}\r\n");
                 string dname ="UNKNOWN";
                 foreach(PeopleDetail p in peopleInfo)
                 {
@@ -213,13 +216,13 @@ namespace MovieSearchEngine
                         break;
                     }
                 }
-                info.Append($"Director: {dname} \r\n");
-                info.Append("Actor(s): ");
+                info.Append($"\r\nDirector: {dname} \r\n");
+                info.Append("\r\nActor(s): ");
                 foreach (PeopleDetail p in peopleInfo)
                 {
                     if (p.IsActor == 1)
                     {
-                        info.Append($"{p.PeopleName} \r\n          ");
+                        info.Append($"{p.PeopleName} \r\n                ");
                     }
                 }
                 uxMovieDetailTextbox.Text = info.ToString();
