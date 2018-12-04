@@ -22,7 +22,7 @@ namespace MovieSearchEngine
         {
             InitializeComponent();
             uxGenreComboBox.SelectedIndex = 0;
-            uxMovieFoundListbox.DataSource = people;
+            uxMovieFoundListbox.DataSource = movieInfo;
             uxMovieFoundListbox.DisplayMember = "FullInfo";
         }
 
