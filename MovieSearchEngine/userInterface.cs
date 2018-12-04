@@ -74,12 +74,7 @@ namespace MovieSearchEngine
             // Both actor name inputed by user
             if (!String.IsNullOrEmpty(uxActorNameTextbox.Text) && !String.IsNullOrEmpty(uxDirectorNameTextbox.Text))
             {
-                input = uxMovieNameTextbox.Text.Trim();
-                query.Append("INNER JOIN FinalProject.PeopleMovie FPM " +
-                    "ON FPM.MovieId = FM.MovieId " +
-                    "INNER JOIN FinalProject.People FP " +
-                    "ON FP.PeopleId = FPM.PeopleId ");
-                input = "";
+
             }// Actor name inner join condition
             else if (!String.IsNullOrEmpty(uxActorNameTextbox.Text))
             {
@@ -142,8 +137,17 @@ namespace MovieSearchEngine
             {
                 String actorNM = uxActorNameTextbox.Text;
                 String directorNM = uxDirectorNameTextbox.Text;
-                query.Append($"{whereClause} FP.PeopleName LIKE '%{actorNM}%'" +
-                    $"AND FP.PeopleName LIKE '%{directorNM}%'");
+                query.Clear();
+                query.Append($"SELECT DISTINCT TB.MovieName, TB.[Year]" +
+                    $"FROM(" +
+                        $"SELECT DISTINCT FM.MovieName, FM.ReleaseTime AS[Year], FPM.MovieId " +
+                        $"FROM FinalProject.Movie FM " +
+                        $"INNER JOIN FinalProject.PeopleMovie FPM ON FPM.MovieId = FM.MovieId " +
+                        $"INNER JOIN FinalProject.People FP ON FP.PeopleId = FPM.PeopleId " +
+                        $"WHERE FP.PeopleName LIKE '%{actorNM}%') TB " +
+                        $"INNER JOIN FinalProject.PeopleMovie FPM ON FPM.MovieId = TB.MovieId " +
+                        $"INNER JOIN FinalProject.People FP ON FP.PeopleId = FPM.PeopleId " +
+                        $"WHERE FP.PeopleName LIKE '%{directorNM}%'");
                 input = "";
                 whereClause = "AND";
             }// Actor name where condition
