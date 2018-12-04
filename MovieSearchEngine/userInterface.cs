@@ -15,16 +15,17 @@ namespace MovieSearchEngine
     {
         List<Person> people = new List<Person>();
 
-        List<MovieTitle> movieTitles = new List<MovieTitle>();
+        List<MovieDetail> movieInfo = new List<MovieDetail>();
 
+        List<PeopleDetail> peopleInfo = new List<PeopleDetail>();
         StringBuilder query = new StringBuilder();
 
         public userInterface()
         {
             InitializeComponent();
             uxGenreComboBox.SelectedIndex = 0;
-            movieFoundListbox.DataSource = people;
-            movieFoundListbox.DisplayMember = "FullInfo";
+            uxMovieFoundListbox.DataSource = people;
+            uxMovieFoundListbox.DisplayMember = "FullInfo";
         }
 
         private void uxSearchButton_Click(object sender, EventArgs e)
@@ -43,10 +44,10 @@ namespace MovieSearchEngine
             {
                 DataAccess db = new DataAccess();
 
-                movieTitles = db.GetDbData(query.ToString());
+                movieInfo = db.GetDbData(query.ToString());
 
-                movieFoundListbox.DataSource = movieTitles;
-                movieFoundListbox.DisplayMember = "FullInfo";
+                uxMovieFoundListbox.DataSource = movieInfo;
+                uxMovieFoundListbox.DisplayMember = "FullInfo";
 
                 query.Clear();
             }
@@ -57,17 +58,29 @@ namespace MovieSearchEngine
             }
         }
 
+        private void uxMovieFoundListbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = uxMovieFoundListbox.SelectedIndex;
+            ShowDetail(index);
+            ShowReview(index);
+        }
+
+        private void uxPushRevButton_Click(object sender, EventArgs e)
+        {
+            string newReview = uxNewReviewTextbox.Text;
+        }
+
         private void innerJoin(StringBuilder query)
         {
             String input = "";
             // Both actor name inputed by user
-            if (!String.IsNullOrEmpty(uxActorNameTextbox.Text) && !String.IsNullOrEmpty(uxActorNameTextbox.Text))
+            if (!String.IsNullOrEmpty(uxActorNameTextbox.Text) && !String.IsNullOrEmpty(uxDirectorNameTextbox.Text))
             {
                 input = uxMovieNameTextbox.Text.Trim();
                 query.Append("INNER JOIN FinalProject.PeopleMovie FPM " +
                     "ON FPM.MovieId = FM.MovieId" +
-                    "INNER JOIN FinalProject.People FP" +
-                    "ON FP.PeopleId = FPM.PeopleId");
+                    "INNER JOIN FinalProject.People FP " +
+                    "ON FP.PeopleId = FPM.PeopleId ");
                 input = "";
             }// Actor name inner join condition
             else if (!String.IsNullOrEmpty(uxActorNameTextbox.Text))
@@ -75,17 +88,17 @@ namespace MovieSearchEngine
                 input = uxActorNameTextbox.Text;
                 query.Append("INNER JOIN FinalProject.PeopleMovie FPM " +
                     "ON FPM.MovieId = FM.MovieId AND FPM.IsActor = True " +
-                    "INNER JOIN FinalProject.People FP" +
-                    "ON FP.PeopleId = FPM.PeopleId");
+                    "INNER JOIN FinalProject.People FP " +
+                    "ON FP.PeopleId = FPM.PeopleId ");
                 input = "";
             }// Director name inner join condition
-            else if (!String.IsNullOrEmpty(uxActorNameTextbox.Text))
+            else if (!String.IsNullOrEmpty(uxDirectorNameTextbox.Text))
             {
                 input = uxDirectorNameTextbox.Text;
                 query.Append("INNER JOIN FinalProject.PeopleMovie FPM " +
                     "ON FPM.MovieId = FM.MovieId AND FPM.IsDirector = True " +
                     "INNER JOIN FinalProject.People FP" +
-                    "ON FP.PeopleId = FPM.PeopleId");
+                    "ON FP.PeopleId = FPM.PeopleId ");
                 input = "";
             }
 
@@ -99,7 +112,7 @@ namespace MovieSearchEngine
                         "ON FMG.MovieId = FM.MovieId " +
                         "INNER JOIN FinalProject.Genre FG " +
                         "ON FG.GenreId = FMG.GenreId " +
-                        $"and FG.GenreType = '{input} '");
+                        $"AND FG.GenreType = '{input}' ");
                     input = "";
                 }
             }
@@ -150,6 +163,35 @@ namespace MovieSearchEngine
                 input = "";
                 whereClause = "AND";
             }            
+        }
+
+        private void ShowDetail(int i)
+        {
+            string mn = movieInfo[i].MovieName;
+            query = new StringBuilder();
+            query.Append($"SELECT DISTINCT FP.PeopleName, FPM.IsActor, FPM.IsDirector " +
+                "FROM FinalProject.Movie FM " +
+                "INNER JOIN FinalProject.PeopleMovie FPM " +
+                    "INNER JOIN FinalProject.People FP " +
+                    "ON FP.PeopleId = FPM.PeopleId " +
+                    $"WHERE FM.MovieName = '%{mn}%' ");
+            mn = "";
+            try
+            {
+                DataAccess pdb = new DataAccess();
+                peopleInfo = pdb.GetPeopleDetail(query.ToString());
+                
+                query.Clear();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+                //Console.WriteLine(ex.ToString());
+            }
+        }
+        private void ShowReview(int i)
+        {
+
         }
     }
 }

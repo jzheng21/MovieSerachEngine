@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MovieSearchEngine
 {
-    public class MovieTitle
+    public class MovieDetail
     {
         public string MovieName { get; set; }
         public DateTime Year { get; set; }
-
+        public string GenreType { get; set; }
         public string FullInfo
         {
             get

@@ -10,11 +10,20 @@ namespace MovieSearchEngine
 {
     public class DataAccess
     {
-        public List<MovieTitle> GetDbData(string query)
+        public List<MovieDetail> GetDbData(string query)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnString("SampleDB")))
             {
-                var data = connection.Query<MovieTitle>(query).ToList();
+                var data = connection.Query<MovieDetail>(query).ToList();
+                return data;
+            }
+        }
+
+        public List<PeopleDetail> GetPeopleDetail(string query)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnString("SampleDB")))
+            {
+                var data = connection.Query<PeopleDetail>(query).ToList();
                 return data;
             }
         }

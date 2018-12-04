@@ -51,9 +51,9 @@
   <ItemGroup>
     <Compile Include="DataAccess.cs" />
     <Compile Include="Helper.cs" />
-    <Compile Include="MovieDetails.cs" />
+    <Compile Include="PeopleDetail.cs" />
     <Compile Include="MovieReview.cs" />
-    <Compile Include="MovieTitle.cs" />
+    <Compile Include="MovieDetail.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="userInterface.cs">
       <SubType>Form</SubType>
