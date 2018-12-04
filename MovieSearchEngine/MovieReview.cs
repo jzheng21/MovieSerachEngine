@@ -10,5 +10,13 @@ namespace MovieSearchEngine
     {
         public String Review { get; set; }
         public DateTime Time { get; set; }
+        public string FullInfo
+        {
+            get
+            {
+                return $"{Review} \r\n      posted on {Time.ToString()}";
+            }
+        }
+
     }
 }

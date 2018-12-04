@@ -30,7 +30,6 @@
         {
             this.uxMovieNameTextbox = new System.Windows.Forms.TextBox();
             this.uxMovieFoundListbox = new System.Windows.Forms.ListBox();
-            this.uxReviewList = new System.Windows.Forms.ListView();
             this.uxSearchButton = new System.Windows.Forms.Button();
             this.uxMovieNameLabel = new System.Windows.Forms.Label();
             this.uxActorNameLabel = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@
             this.uxPushRevButton = new System.Windows.Forms.Button();
             this.uxMovieDetailTextbox = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.uxReviewList = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.SuspendLayout();
@@ -67,18 +67,10 @@
             this.uxMovieFoundListbox.Location = new System.Drawing.Point(13, 288);
             this.uxMovieFoundListbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uxMovieFoundListbox.Name = "uxMovieFoundListbox";
+            this.uxMovieFoundListbox.ScrollAlwaysVisible = true;
             this.uxMovieFoundListbox.Size = new System.Drawing.Size(367, 464);
             this.uxMovieFoundListbox.TabIndex = 6;
             this.uxMovieFoundListbox.SelectedIndexChanged += new System.EventHandler(this.uxMovieFoundListbox_SelectedIndexChanged);
-            // 
-            // uxReviewList
-            // 
-            this.uxReviewList.Location = new System.Drawing.Point(388, 346);
-            this.uxReviewList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uxReviewList.Name = "uxReviewList";
-            this.uxReviewList.Size = new System.Drawing.Size(492, 258);
-            this.uxReviewList.TabIndex = 8;
-            this.uxReviewList.UseCompatibleStateImageBehavior = false;
             // 
             // uxSearchButton
             // 
@@ -232,7 +224,7 @@
             this.uxMovieDetailTextbox.Multiline = true;
             this.uxMovieDetailTextbox.Name = "uxMovieDetailTextbox";
             this.uxMovieDetailTextbox.ReadOnly = true;
-            this.uxMovieDetailTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.uxMovieDetailTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.uxMovieDetailTextbox.Size = new System.Drawing.Size(490, 319);
             this.uxMovieDetailTextbox.TabIndex = 23;
             // 
@@ -245,17 +237,28 @@
             this.splitContainer1.SplitterDistance = 159;
             this.splitContainer1.TabIndex = 24;
             // 
+            // uxReviewList
+            // 
+            this.uxReviewList.FormattingEnabled = true;
+            this.uxReviewList.ItemHeight = 20;
+            this.uxReviewList.Location = new System.Drawing.Point(388, 340);
+            this.uxReviewList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uxReviewList.Name = "uxReviewList";
+            this.uxReviewList.ScrollAlwaysVisible = true;
+            this.uxReviewList.Size = new System.Drawing.Size(492, 264);
+            this.uxReviewList.TabIndex = 25;
+            // 
             // userInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1199, 774);
+            this.Controls.Add(this.uxReviewList);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.uxMovieDetailTextbox);
             this.Controls.Add(this.uxPushRevButton);
             this.Controls.Add(this.uxNewReviewTextbox);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.uxReviewList);
             this.Controls.Add(this.uxMovieFoundListbox);
             this.Controls.Add(this.uxSearchButton);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -275,7 +278,6 @@
 
         private System.Windows.Forms.TextBox uxMovieNameTextbox;
         private System.Windows.Forms.ListBox uxMovieFoundListbox;
-        private System.Windows.Forms.ListView uxReviewList;
         private System.Windows.Forms.Button uxSearchButton;
         private System.Windows.Forms.Label uxMovieNameLabel;
         private System.Windows.Forms.Label uxActorNameLabel;
@@ -291,6 +293,7 @@
         private System.Windows.Forms.ComboBox uxGenreComboBox;
         private System.Windows.Forms.TextBox uxMovieDetailTextbox;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.ListBox uxReviewList;
     }
 }
 

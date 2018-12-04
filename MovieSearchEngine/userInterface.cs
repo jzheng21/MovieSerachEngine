@@ -179,13 +179,31 @@ namespace MovieSearchEngine
                     $"WHERE FM.MovieName = N'{mn}' ");
             try
             {
-                DataAccess pdb = new DataAccess();
-                peopleInfo = pdb.GetPeopleDetail(query.ToString());
+                DataAccess db = new DataAccess();
+                peopleInfo = db.GetPeopleDetail(query.ToString());
                 StringBuilder info = new StringBuilder();
                 info.Append($"Movie Name: {mn}\r\n" +
                     $"Released by {movieInfo[i].Year}\r\n" +
                     $"Movie Genre: {movieInfo[i].GenreType}\r\n" +
                     $"Description: {movieInfo[i].MovieDescription}\r\n");
+                string dname ="UNKNOWN";
+                foreach(PeopleDetail p in peopleInfo)
+                {
+                    if(p.IsDirector == 1)
+                    {
+                        dname = p.PeopleName;
+                        break;
+                    }
+                }
+                info.Append($"Director: {dname} \r\n");
+                info.Append("Actor(s): ");
+                foreach (PeopleDetail p in peopleInfo)
+                {
+                    if (p.IsActor == 1)
+                    {
+                        info.Append($"{p.PeopleName} \r\n          ");
+                    }
+                }
                 uxMovieDetailTextbox.Text = info.ToString();
                 query.Clear();
             }
@@ -197,7 +215,15 @@ namespace MovieSearchEngine
         }
         private void ShowReview(int i)
         {
-
+            DataAccess db = new DataAccess();
+            movieReviews = db.GetMovieReviews(query.ToString());
+            StringBuilder info = new StringBuilder();
+            foreach(MovieReview mr in movieReviews)
+            {
+                info.Append(mr.FullInfo);
+            }
+            uxReviewList.DataSource = movieReviews;
+            uxReviewList.DisplayMember = "FullInfo";
         }
     }
 }
