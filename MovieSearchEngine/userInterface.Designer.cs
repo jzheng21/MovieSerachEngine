@@ -42,13 +42,12 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.uxGenreComboBox = new System.Windows.Forms.ComboBox();
             this.uxNewReviewTextbox = new System.Windows.Forms.TextBox();
-            this.uxPushRevButton = new System.Windows.Forms.Button();
+            this.uxReviewSubmitButton = new System.Windows.Forms.Button();
             this.uxMovieDetailTextbox = new System.Windows.Forms.TextBox();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.uxReviewList = new System.Windows.Forms.ListBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // uxMovieNameTextbox
@@ -208,15 +207,15 @@
             this.uxNewReviewTextbox.Size = new System.Drawing.Size(493, 100);
             this.uxNewReviewTextbox.TabIndex = 21;
             // 
-            // uxPushRevButton
+            // uxReviewSubmitButton
             // 
-            this.uxPushRevButton.Location = new System.Drawing.Point(782, 718);
-            this.uxPushRevButton.Name = "uxPushRevButton";
-            this.uxPushRevButton.Size = new System.Drawing.Size(98, 34);
-            this.uxPushRevButton.TabIndex = 22;
-            this.uxPushRevButton.Text = "Submit";
-            this.uxPushRevButton.UseVisualStyleBackColor = true;
-            this.uxPushRevButton.Click += new System.EventHandler(this.uxPushRevButton_Click);
+            this.uxReviewSubmitButton.Location = new System.Drawing.Point(782, 718);
+            this.uxReviewSubmitButton.Name = "uxReviewSubmitButton";
+            this.uxReviewSubmitButton.Size = new System.Drawing.Size(98, 34);
+            this.uxReviewSubmitButton.TabIndex = 22;
+            this.uxReviewSubmitButton.Text = "Submit";
+            this.uxReviewSubmitButton.UseVisualStyleBackColor = true;
+            this.uxReviewSubmitButton.Click += new System.EventHandler(this.uxPushRevButton_Click);
             // 
             // uxMovieDetailTextbox
             // 
@@ -228,19 +227,12 @@
             this.uxMovieDetailTextbox.Size = new System.Drawing.Size(490, 319);
             this.uxMovieDetailTextbox.TabIndex = 23;
             // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Location = new System.Drawing.Point(904, 105);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.splitContainer1.Size = new System.Drawing.Size(283, 318);
-            this.splitContainer1.SplitterDistance = 159;
-            this.splitContainer1.TabIndex = 24;
-            // 
             // uxReviewList
             // 
             this.uxReviewList.FormattingEnabled = true;
             this.uxReviewList.ItemHeight = 20;
+            this.uxReviewList.Items.AddRange(new object[] {
+            "Review"});
             this.uxReviewList.Location = new System.Drawing.Point(388, 340);
             this.uxReviewList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uxReviewList.Name = "uxReviewList";
@@ -248,15 +240,36 @@
             this.uxReviewList.Size = new System.Drawing.Size(492, 264);
             this.uxReviewList.TabIndex = 25;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(943, 178);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(200, 100);
+            this.tableLayoutPanel2.TabIndex = 26;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(887, 340);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel1.TabIndex = 27;
+            // 
             // userInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1199, 774);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.uxReviewList);
-            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.uxMovieDetailTextbox);
-            this.Controls.Add(this.uxPushRevButton);
+            this.Controls.Add(this.uxReviewSubmitButton);
             this.Controls.Add(this.uxNewReviewTextbox);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.uxMovieFoundListbox);
@@ -267,8 +280,6 @@
             this.Text = "Movie Search Engine";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,11 +300,12 @@
         private System.Windows.Forms.TextBox uxYearTextbox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TextBox uxNewReviewTextbox;
-        private System.Windows.Forms.Button uxPushRevButton;
+        private System.Windows.Forms.Button uxReviewSubmitButton;
         private System.Windows.Forms.ComboBox uxGenreComboBox;
         private System.Windows.Forms.TextBox uxMovieDetailTextbox;
-        private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ListBox uxReviewList;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 

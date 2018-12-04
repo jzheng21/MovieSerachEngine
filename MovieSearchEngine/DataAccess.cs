@@ -36,5 +36,13 @@ namespace MovieSearchEngine
                 return data;
             }
         }
+
+        public void pushReview(string query)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnString("SampleDB")))
+            {
+                connection.Execute(query);
+            }
+        }
     }
 }

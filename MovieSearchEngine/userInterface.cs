@@ -17,6 +17,7 @@ namespace MovieSearchEngine
         List<PeopleDetail> peopleInfo = new List<PeopleDetail>();
         List<MovieReview> movieReviews = new List<MovieReview>();
         StringBuilder query = new StringBuilder();
+        private DataAccess dataAccess = new DataAccess();
 
         public userInterface()
         {
@@ -24,6 +25,7 @@ namespace MovieSearchEngine
             uxGenreComboBox.SelectedIndex = 0;
             uxMovieFoundListbox.DataSource = movieInfo;
             uxMovieFoundListbox.DisplayMember = "FullInfo";
+            uxReviewSubmitButton.Enabled = false;
         }
 
         private void uxSearchButton_Click(object sender, EventArgs e)
@@ -58,14 +60,25 @@ namespace MovieSearchEngine
 
         private void uxMovieFoundListbox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            uxReviewSubmitButton.Enabled = true;
             int index = uxMovieFoundListbox.SelectedIndex;
             ShowDetail(index);
-            ShowReview(index);
+            //ShowReview(index);
         }
 
         private void uxPushRevButton_Click(object sender, EventArgs e)
         {
             string newReview = uxNewReviewTextbox.Text;
+            query.Clear();
+            query.Append($"INSERT FinalProject.Review(MovieId, Comment) " +
+                $"SELECT m.MovieId, r.Comment " +
+                $"FROM " +
+                $"(" +
+                $"VALUES " +
+                $"(N'{movieInfo[uxMovieFoundListbox.SelectedIndex].MovieName}', N'{newReview}') " +
+                $") r (MovieName, Comment) " +
+                $"INNER JOIN FinalProject.Movie m ON m.MovieName = r.MovieName;");
+            dataAccess.pushReview(query.ToString());
         }
 
         private void innerJoin(StringBuilder query)
@@ -180,6 +193,7 @@ namespace MovieSearchEngine
             try
             {
                 DataAccess db = new DataAccess();
+                var data = query.ToString();
                 peopleInfo = db.GetPeopleDetail(query.ToString());
                 StringBuilder info = new StringBuilder();
                 info.Append($"Movie Name: {mn}\r\n" +
@@ -216,6 +230,8 @@ namespace MovieSearchEngine
         private void ShowReview(int i)
         {
             DataAccess db = new DataAccess();
+            query.Clear();
+
             movieReviews = db.GetMovieReviews(query.ToString());
             StringBuilder info = new StringBuilder();
             foreach(MovieReview mr in movieReviews)
