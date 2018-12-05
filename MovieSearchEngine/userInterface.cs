@@ -30,6 +30,7 @@ namespace MovieSearchEngine
 
         private void uxSearchButton_Click(object sender, EventArgs e)
         {
+            uxMovieDetailTextbox.Clear();
             movieInfo = new List<MovieDetail>();
             // Base condition for SQL query
             query.Append("SELECT DISTINCT FM.MovieName, FM.ReleaseTime AS [Year], FM.MovieDescription, FG.GenreType " +
@@ -54,7 +55,33 @@ namespace MovieSearchEngine
             }
             catch (SqlException ex)
             {
-                uxMovieNameTextbox.Text = ex.ToString();
+                MessageBox.Show(ex.ToString());
+                //Console.WriteLine(ex.ToString());
+            }
+        }
+        private void uxRandomPickButton_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            int Mid = rnd.Next(16);
+            query.Append("SELECT DISTINCT FM.MovieName, FM.ReleaseTime AS [Year]," +
+                " FM.MovieDescription, FG.GenreType FROM FinalProject.Movie FM " +
+                "INNER JOIN FinalProject.MovieGenre FMG ON FMG.MovieId = FM.MovieId " +
+                "INNER JOIN FinalProject.Genre FG ON FG.GenreId = FMG.GenreId " +
+                $"WHERE FM.MovieId = {Mid}");
+            try
+            {
+                DataAccess db = new DataAccess();
+                var data = query.ToString();
+                movieInfo = db.GetMovieDetail(query.ToString());
+
+                uxMovieFoundListbox.DataSource = movieInfo;
+                uxMovieFoundListbox.DisplayMember = "FullInfo";
+
+                query.Clear();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
                 //Console.WriteLine(ex.ToString());
             }
         }

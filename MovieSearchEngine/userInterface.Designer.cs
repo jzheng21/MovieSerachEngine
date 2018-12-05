@@ -49,6 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.uxCommentLabel = new System.Windows.Forms.Label();
             this.uxReviewDeleteButton = new System.Windows.Forms.Button();
+            this.uxRandomPickButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -280,11 +281,22 @@
             this.uxReviewDeleteButton.UseVisualStyleBackColor = true;
             this.uxReviewDeleteButton.Click += new System.EventHandler(this.uxReviewDeleteButton_Click);
             // 
+            // uxRandomPickButton
+            // 
+            this.uxRandomPickButton.Location = new System.Drawing.Point(13, 721);
+            this.uxRandomPickButton.Name = "uxRandomPickButton";
+            this.uxRandomPickButton.Size = new System.Drawing.Size(367, 34);
+            this.uxRandomPickButton.TabIndex = 30;
+            this.uxRandomPickButton.Text = "Try Luck";
+            this.uxRandomPickButton.UseVisualStyleBackColor = true;
+            this.uxRandomPickButton.Click += new System.EventHandler(this.uxRandomPickButton_Click);
+            // 
             // userInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 767);
+            this.Controls.Add(this.uxRandomPickButton);
             this.Controls.Add(this.uxReviewDeleteButton);
             this.Controls.Add(this.uxCommentLabel);
             this.Controls.Add(this.label1);
@@ -330,6 +342,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label uxCommentLabel;
         private System.Windows.Forms.Button uxReviewDeleteButton;
+        private System.Windows.Forms.Button uxRandomPickButton;
     }
 }
 
