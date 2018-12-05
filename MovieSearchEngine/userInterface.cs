@@ -61,6 +61,7 @@ namespace MovieSearchEngine
         }
         private void uxRandomPickButton_Click(object sender, EventArgs e)
         {
+            uxMovieDetailTextbox.Clear();
             Random rnd = new Random();
             int Mid = rnd.Next(16);
             query.Append("SELECT DISTINCT FM.MovieName, FM.ReleaseTime AS [Year]," +
