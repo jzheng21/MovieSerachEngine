@@ -18,14 +18,18 @@ namespace MovieSearchEngine
         List<MovieReview> movieReviews = new List<MovieReview>();
         StringBuilder query = new StringBuilder();
         private DataAccess dataAccess = new DataAccess();
-
-        public userInterface()
+        private string username;
+        private int userid;
+        public userInterface(string User, int userid)
         {
             InitializeComponent();
             uxGenreComboBox.SelectedIndex = 0;
             uxMovieFoundListbox.DataSource = movieInfo;
             uxMovieFoundListbox.DisplayMember = "FullInfo";
             uxReviewSubmitButton.Enabled = false;
+            username = User;
+            this.userid = userid;
+            uxWelcomeLabel.Text = $"Welcome, {username}!";
         }
 
         private void uxSearchButton_Click(object sender, EventArgs e)
@@ -102,13 +106,13 @@ namespace MovieSearchEngine
             string newReview = uxNewReviewTextbox.Text;
             string moviewNM = movieInfo[uxMovieFoundListbox.SelectedIndex].MovieName;
             query.Clear();
-            query.Append($"INSERT FinalProject.Review(MovieId, Comment) " +
-                $"SELECT m.MovieId, r.Comment " +
+            query.Append($"INSERT FinalProject.Review(MovieId, UsersId, Comment) " +
+                $"SELECT m.MovieId, r.UserId, r.Comment " +
                 $"FROM " +
                 $"(" +
                 $"VALUES " +
-                $"(N'{moviewNM}', N'{newReview}') " +
-                $") r (MovieName, Comment) " +
+                $"(N'{moviewNM}',N'{userid}', N'{newReview}') " +
+                $") r (MovieName, UserId, Comment) " +
                 $"INNER JOIN FinalProject.Movie m ON m.MovieName = r.MovieName;");
             dataAccess.pushReview(query.ToString());
             uxNewReviewTextbox.Clear();
@@ -125,14 +129,18 @@ namespace MovieSearchEngine
             if(uxReviewList.SelectedIndex != -1)
             {
                 MovieReview mr = movieReviews[uxReviewList.SelectedIndex];
-                int Rid = mr.ReviewId;
-                query.Clear();
-                query.Append($"DELETE FROM FinalProject.Review " +
-                    $"WHERE ReviewId = {Rid} ");
-                dataAccess.pushReview(query.ToString());
-                uxNewReviewTextbox.Clear();
-                MessageBox.Show("Review Delete!");
-                ShowReview(uxMovieFoundListbox.SelectedIndex);
+                if (mr.UserId == userid)
+                {                    
+                    int Rid = mr.ReviewId;
+                    query.Clear();
+                    query.Append($"DELETE FROM FinalProject.Review " +
+                        $"WHERE ReviewId = {Rid} ");
+                    dataAccess.pushReview(query.ToString());
+                    uxNewReviewTextbox.Clear();
+                    MessageBox.Show("Review Delete!");
+                    ShowReview(uxMovieFoundListbox.SelectedIndex);
+                }
+
             }
             else
             {

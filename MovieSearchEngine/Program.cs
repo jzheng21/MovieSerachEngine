@@ -16,7 +16,7 @@ namespace MovieSearchEngine
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new userInterface());
+            Application.Run(new LoginInterface());
         }
     }
 }

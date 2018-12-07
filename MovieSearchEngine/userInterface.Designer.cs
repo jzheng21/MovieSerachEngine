@@ -50,6 +50,7 @@
             this.uxCommentLabel = new System.Windows.Forms.Label();
             this.uxReviewDeleteButton = new System.Windows.Forms.Button();
             this.uxRandomPickButton = new System.Windows.Forms.Button();
+            this.uxWelcomeLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +67,7 @@
             // 
             this.uxMovieFoundListbox.FormattingEnabled = true;
             this.uxMovieFoundListbox.ItemHeight = 20;
-            this.uxMovieFoundListbox.Location = new System.Drawing.Point(13, 288);
+            this.uxMovieFoundListbox.Location = new System.Drawing.Point(8, 325);
             this.uxMovieFoundListbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uxMovieFoundListbox.Name = "uxMovieFoundListbox";
             this.uxMovieFoundListbox.ScrollAlwaysVisible = true;
@@ -76,7 +77,7 @@
             // 
             // uxSearchButton
             // 
-            this.uxSearchButton.Location = new System.Drawing.Point(13, 242);
+            this.uxSearchButton.Location = new System.Drawing.Point(8, 279);
             this.uxSearchButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uxSearchButton.Name = "uxSearchButton";
             this.uxSearchButton.Size = new System.Drawing.Size(367, 36);
@@ -172,7 +173,7 @@
             this.tableLayoutPanel1.Controls.Add(this.uxMovieNameTextbox, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.uxGenreComboBox, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.uxDirectorNameLabel, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 19);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 56);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -204,7 +205,7 @@
             // 
             // uxNewReviewTextbox
             // 
-            this.uxNewReviewTextbox.Location = new System.Drawing.Point(384, 607);
+            this.uxNewReviewTextbox.Location = new System.Drawing.Point(379, 644);
             this.uxNewReviewTextbox.Multiline = true;
             this.uxNewReviewTextbox.Name = "uxNewReviewTextbox";
             this.uxNewReviewTextbox.Size = new System.Drawing.Size(493, 105);
@@ -212,7 +213,7 @@
             // 
             // uxReviewSubmitButton
             // 
-            this.uxReviewSubmitButton.Location = new System.Drawing.Point(673, 718);
+            this.uxReviewSubmitButton.Location = new System.Drawing.Point(668, 755);
             this.uxReviewSubmitButton.Name = "uxReviewSubmitButton";
             this.uxReviewSubmitButton.Size = new System.Drawing.Size(98, 34);
             this.uxReviewSubmitButton.TabIndex = 22;
@@ -222,7 +223,7 @@
             // 
             // uxMovieDetailTextbox
             // 
-            this.uxMovieDetailTextbox.Location = new System.Drawing.Point(387, 42);
+            this.uxMovieDetailTextbox.Location = new System.Drawing.Point(382, 79);
             this.uxMovieDetailTextbox.Multiline = true;
             this.uxMovieDetailTextbox.Name = "uxMovieDetailTextbox";
             this.uxMovieDetailTextbox.ReadOnly = true;
@@ -234,7 +235,7 @@
             // 
             this.uxReviewList.FormattingEnabled = true;
             this.uxReviewList.ItemHeight = 20;
-            this.uxReviewList.Location = new System.Drawing.Point(385, 355);
+            this.uxReviewList.Location = new System.Drawing.Point(380, 392);
             this.uxReviewList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uxReviewList.Name = "uxReviewList";
             this.uxReviewList.ScrollAlwaysVisible = true;
@@ -245,7 +246,7 @@
             // 
             this.uxReviewLabel.AutoSize = true;
             this.uxReviewLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxReviewLabel.Location = new System.Drawing.Point(383, 330);
+            this.uxReviewLabel.Location = new System.Drawing.Point(378, 367);
             this.uxReviewLabel.Name = "uxReviewLabel";
             this.uxReviewLabel.Size = new System.Drawing.Size(75, 20);
             this.uxReviewLabel.TabIndex = 26;
@@ -255,7 +256,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(386, 19);
+            this.label1.Location = new System.Drawing.Point(381, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(146, 20);
             this.label1.TabIndex = 27;
@@ -265,7 +266,7 @@
             // 
             this.uxCommentLabel.AutoSize = true;
             this.uxCommentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxCommentLabel.Location = new System.Drawing.Point(383, 584);
+            this.uxCommentLabel.Location = new System.Drawing.Point(378, 621);
             this.uxCommentLabel.Name = "uxCommentLabel";
             this.uxCommentLabel.Size = new System.Drawing.Size(111, 20);
             this.uxCommentLabel.TabIndex = 28;
@@ -273,7 +274,7 @@
             // 
             // uxReviewDeleteButton
             // 
-            this.uxReviewDeleteButton.Location = new System.Drawing.Point(779, 718);
+            this.uxReviewDeleteButton.Location = new System.Drawing.Point(774, 755);
             this.uxReviewDeleteButton.Name = "uxReviewDeleteButton";
             this.uxReviewDeleteButton.Size = new System.Drawing.Size(98, 34);
             this.uxReviewDeleteButton.TabIndex = 29;
@@ -283,7 +284,7 @@
             // 
             // uxRandomPickButton
             // 
-            this.uxRandomPickButton.Location = new System.Drawing.Point(13, 721);
+            this.uxRandomPickButton.Location = new System.Drawing.Point(8, 758);
             this.uxRandomPickButton.Name = "uxRandomPickButton";
             this.uxRandomPickButton.Size = new System.Drawing.Size(367, 34);
             this.uxRandomPickButton.TabIndex = 30;
@@ -291,11 +292,21 @@
             this.uxRandomPickButton.UseVisualStyleBackColor = true;
             this.uxRandomPickButton.Click += new System.EventHandler(this.uxRandomPickButton_Click);
             // 
+            // uxWelcomeLabel
+            // 
+            this.uxWelcomeLabel.AutoSize = true;
+            this.uxWelcomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxWelcomeLabel.Location = new System.Drawing.Point(0, 0);
+            this.uxWelcomeLabel.Name = "uxWelcomeLabel";
+            this.uxWelcomeLabel.Size = new System.Drawing.Size(0, 31);
+            this.uxWelcomeLabel.TabIndex = 31;
+            // 
             // userInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 767);
+            this.ClientSize = new System.Drawing.Size(884, 800);
+            this.Controls.Add(this.uxWelcomeLabel);
             this.Controls.Add(this.uxRandomPickButton);
             this.Controls.Add(this.uxReviewDeleteButton);
             this.Controls.Add(this.uxCommentLabel);
@@ -309,6 +320,7 @@
             this.Controls.Add(this.uxMovieFoundListbox);
             this.Controls.Add(this.uxSearchButton);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "userInterface";
             this.Text = "Movie Search Engine";
@@ -343,6 +355,7 @@
         private System.Windows.Forms.Label uxCommentLabel;
         private System.Windows.Forms.Button uxReviewDeleteButton;
         private System.Windows.Forms.Button uxRandomPickButton;
+        private System.Windows.Forms.Label uxWelcomeLabel;
     }
 }
 
