@@ -140,6 +140,10 @@ namespace MovieSearchEngine
                     MessageBox.Show("Review Delete!");
                     ShowReview(uxMovieFoundListbox.SelectedIndex);
                 }
+                else
+                {
+                    MessageBox.Show("You can only delete your own reviews!");
+                }
 
             }
             else
@@ -300,9 +304,10 @@ namespace MovieSearchEngine
             string moviewNM = movieInfo[uxMovieFoundListbox.SelectedIndex].MovieName;
             DataAccess db = new DataAccess();
             query.Clear();
-            query.Append($"SELECT R.ReviewId, R.Comment, R.CreatedTime " +
+            query.Append($"SELECT R.UsersId, U.UserName, R.ReviewId, R.Comment, R.CreatedTime " +
                 $"FROM FinalProject.Movie M " +
                 $"INNER JOIN FinalProject.Review R ON R.MovieId = M.MovieId " +
+                $"INNER JOIN FinalProject.Users U ON U.UserId = R.UsersId " +
                 $"WHERE M.MovieName = '{moviewNM}'");
             movieReviews = db.GetMovieReviews(query.ToString());
             StringBuilder info = new StringBuilder();

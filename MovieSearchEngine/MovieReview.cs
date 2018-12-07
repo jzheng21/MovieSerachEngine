@@ -10,13 +10,14 @@ namespace MovieSearchEngine
     {
         public int ReviewId { get; set; }
         public int UserId { get; set; }
+        public string UserName { get; set; }
         public String Comment { get; set; }
         public DateTimeOffset CreatedTime { get; set; }
         public string FullInfo
         {
             get
             {
-                return $"{Comment} \r\n      posted on {CreatedTime.DateTime.ToString()}";
+                return $"{UserName}: {Comment} \r\n      posted on {CreatedTime.DateTime.ToString()}";
             }
         }
 
